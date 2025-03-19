@@ -143,6 +143,15 @@ void manejarTeclado(unsigned char key, int x, int y) {
     }
 }
 
+// Funcion para arreglar el teclado
+void auxTeclado(unsigned char key, int x, int y) {
+    switch (key) {
+        case 'a':
+        case 'd':
+            velocidadX = 0.0f;
+            break;
+    }
+}
 
 // Función principal
 int main(int argc, char** argv) {
@@ -153,6 +162,7 @@ int main(int argc, char** argv) {
 
     glutDisplayFunc(renderizar); 
     glutKeyboardFunc(manejarTeclado); 
+    glutKeyboardUpFunc(auxTeclado);
     glutTimerFunc(0, actualizar, 0); 
 
     glClearColor(0.5f, 0.5f, 0.5f, 1.0f); 
